@@ -5,3 +5,6 @@ app.MapGet("/", () => "Hello World!");
 app.MapGet("/api/version", () => "0.0.2" );
 
 app.Run();
+
+// you need to have a public class Program to being able to execute tests
+public partial class Program {}
