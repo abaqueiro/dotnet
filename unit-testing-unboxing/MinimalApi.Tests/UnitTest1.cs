@@ -2,15 +2,20 @@ namespace MinimalApi.Tests;
 
 using Microsoft.AspNetCore.Mvc.Testing;
 
-public class UnitTest {
+public class UnitTest1 {
+    private readonly WebApplicationFactory<Program> _wapFactory;
+
+    public UnitTest1(){
+        _wapFactory = new WebApplicationFactory<Program>();
+    }
+
     [Fact]
-    public async Task TestRootEndpoint() {
-        await using var app = new WebApplicationFactory<Program>();
-        using var client = app.CreateClient();
+    public async Task TestRootEndpoint(){
+        var hcl = _wapFactory.CreateClient();
 
         // Act
-        var response = await client.GetStringAsync("/");
+        var response = await hcl.GetStringAsync("/");
         // Assert
         Assert.Equal("Hello World!", response);
-    }
+    } 
 }
