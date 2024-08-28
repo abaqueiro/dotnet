@@ -9,6 +9,6 @@ public interface PeopleServiceInterface {
 // an implementation of this interface
 public class PeopleService : PeopleServiceInterface {
     public string Create(Person person){
-        return $"Created person named: {person.FirstName} {person.LastName} {person.MiddleName}";
+        return person.FirstName + " " + person.LastName + " " + person.MiddleName;
     }
 }
